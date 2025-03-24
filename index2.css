@@ -1,0 +1,282 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+}
+
+/* =================
+    Layout
+   ================= */
+/* 
+Challenge:
+    1. Get the header, main, and footer 
+       into a vertical column. 
+    2. Put an em of space between them 
+       vertically.
+    3. Put an em of space above the header, 
+       below the footer, and to the left and 
+       right of all three elements.  
+    🤔 Have you learned any good techniques 
+       for creating empty rows/columns in a grid?
+    ⚠️ You do NOT need to use the 'margin' 
+       property to complete this challenge.
+    🛟 hint.md for help!
+ */
+
+body {
+    display: grid;
+    grid-template-columns: 1em 1fr 1em;
+    grid-template-areas:
+        ".... .... ...."
+        ".... head ...."
+        ".... main ...."
+        ".... foot ...."
+        ".... .... ....";
+    gap: 1em 0;
+}
+
+.site-header {
+    grid-area: head;
+}
+
+footer {
+    grid-area: foot;
+}
+
+/*
+Challenge 1:
+    1. Assign each card a grid-area name.
+*/
+
+.technology {
+    grid-area: tech;
+}
+
+.environment {
+    grid-area: envi;
+
+}
+
+.nasa {
+    grid-area: nasa;
+
+}
+
+.physics {
+    grid-area: phys;
+
+}
+
+.health {
+    grid-area: heal;
+
+}
+
+/* =================
+    Main Element Layout 
+   ================= */
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+        "tech"
+        "envi"
+        "nasa"
+        "phys"
+        "heal";
+    gap: 1em;
+}
+
+@media (min-width: 500px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "tech tech"
+            "envi nasa"
+            "phys nasa"
+            "heal heal";
+        gap: 1em;
+    }
+
+}
+
+
+
+
+@media (min-width: 870px) {
+    main {
+
+        grid-template-columns: repeat(9, 1fr) repeat(3, minmax(70px, 1fr));
+        grid-template-areas:
+            "tech tech tech tech tech tech envi envi envi nasa nasa nasa"
+            "phys phys phys heal heal heal heal heal heal nasa nasa nasa"
+    }
+}
+
+/* 
+A responsive layout without media queries
+  Use grid-auto-rows
+  Specify a given height value to all implicitly generated row tracks
+  .grid-container {
+      display: grid;
+      grid-gap: .5em;
+      grid-template-columns: repeat(5, 1fr);
+      grid-auto-rows: 75px;
+  }
+ Use auto-fit
+  Fit as many columns to the grid as possible
+   .grid-container {
+       display: grid;
+       grid-gap: .5em;
+       grid-template-columns: repeat(auto-fit, 100px);
+       grid-auto-rows: 75px;
+   }
+
+    Use grid-auto-flow: dense
+    Pack the grid items as densely as possible
+    Here is the HTML:
+
+                <html><head><link rel="stylesheet" href="index.css"></head><body><main class="grid-container"><article class="card"><img src="img/normal1.jpg"
+                alt="A small evergreen tree in a forest" /></article><article class="card tall"><img src="img/vertical1.jpg"
+                alt="A densely forested hillside" /></article><article class="card wide"><img src="img/horizontal1.jpg"
+                alt="A snowy mountain range" /></article><article class="card"><img src="img/normal2.jpg"
+                alt="A lake stretching to the horizon" /></article><article class="card"><img src="img/normal3.jpg"
+                alt="Sunset on a snowy mountain" /></article><article class="card big"><img src="img/big1.jpg"
+                alt="A waterfall surrounded by forest" /></article><article class="card"><img src="img/normal4.jpg"
+                alt="A rocky outcrop" /></article><article class="card tall"><img src="img/vertical2.jpg"
+                alt="A track across a desert" /></article><article class="card"><img src="img/normal5.jpg"
+                alt="Large stones on grass" /></article><article class="card wide"><img src="img/horizontal2.jpg"
+                alt="A mountain range under a mauve sky" /></article><article class="card"><img src="img/normal6.jpg"
+                alt="Rapids in a river" /></article><article class="card big"><img src="img/big2.jpg"
+                alt="A rocky outcrop out night" /></article><article class="card"><img src="img/normal7.jpg"
+                alt="A semi-forested hillside" /></article><article class="wide"><img src="img/horizontal3.jpg"
+                alt="Mountains with misty valleys" /></article><article><img src="img/normal8.jpg"
+                alt="A forest of tall trees" /></article><article class="big"><img src="img/big3.jpg"
+                alt="A lone tree on a plain" /></article><article><img src="img/normal9.jpg"
+                alt="A moorland scene" /></article><article class="tall"><img src="img/vertical3.jpg"
+                alt="A lake beneath two mountains. " /></article></main></body></html>
+
+        Here is the CSS:
+
+                .grid-container {
+                    display: grid;
+                    grid-gap: .5em;
+                    grid-template-columns: repeat(auto-fit, 100px);
+                    grid-auto-rows: 75px;
+                    grid-auto-flow: dense;
+                }
+        
+                .wide {
+                    grid-column: span 2;
+                }
+        
+                .tall {
+                    grid-row: span 2;
+                }
+        
+                .big {
+                    grid-row: span 2;
+                    grid-column: span 2;
+                }
+
+        Use minmax(min, max)
+        Defines a size range greater than or equal to min and les than or equal to max.
+
+                .grid-container {
+                    display: grid;
+                    grid-gap: .5em;
+                    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                    grid-auto-rows: 75px;
+                    grid-auto-flow: dense;
+                }
+        
+                .wide {
+                    grid-column: span 2;
+                }
+        
+                .tall {
+                    grid-row: span 2;
+                }
+        
+                .big {
+                    grid-row: span 2;
+                    grid-column: span 2;
+                }
+    */
+
+/* =================
+    Article Card 
+   ================= */
+
+a:hover,
+a:focus {
+    filter: brightness(0.9);
+}
+
+a:focus {
+    outline: 3px solid #5a5a5a;
+    box-shadow: 0 0 0 3px rgba(135, 18, 113, 0.5);
+    transition: outline 0.2s ease, box-shadow 0.2s ease;
+}
+
+article {
+    border-radius: 0.2em;
+    background-color: #e5e5e5;
+    height: 100%;
+}
+
+.article-header {
+    box-sizing: border-box;
+    padding: 1em;
+    width: 100%;
+}
+
+
+/* =================
+    Typography 
+   ================= */
+
+h1 {
+    color: #0F0F0F;
+    letter-spacing: 0.04em;
+    font-family: "Source Code Pro", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 0.88rem;
+    color: #5D0E50;
+    margin: 0;
+    letter-spacing: 0.065em;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1rem;
+    margin: .4em 0;
+    letter-spacing: 0.03em;
+    color: #111111;
+    font-weight: 500;
+}
+
+p {
+    margin: 0;
+    font-size: .85rem;
+    color: #7c7c7c;
+}
+
+/* =================
+    Images 
+   ================= */
+
+img {
+    width: 100%;
+    border-top-left-radius: .2em;
+    border-top-right-radius: .2em;
+}

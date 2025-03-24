@@ -12,10 +12,54 @@ body {
 /* =================
     Layout
    ================= */
+/* 
+Challenge:
+    1. Get the header, main, and footer 
+       into a vertical column. 
+    2. Put an em of space between them 
+       vertically.
+    3. Put an em of space above the header, 
+       below the footer, and to the left and 
+       right of all three elements.  
+    🤔 Have you learned any good techniques 
+       for creating empty rows/columns in a grid?
+    ⚠️ You do NOT need to use the 'margin' 
+       property to complete this challenge.
+    🛟 hint.md for help!
+ */
 
-main {
+body {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1em 1fr 1em;
+    grid-template-areas:
+        ".... .... ...."
+        ".... head ...."
+        ".... main ...."
+        ".... foot ...."
+        ".... .... ....";
+    gap: 1em 0;
+}
+
+.site-header {
+    grid-area: head;
+}
+
+footer {
+    grid-area: foot;
+}
+
+/* =================
+    Main Element Layout 
+   ================= */
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+        "tech"
+        "envi"
+        "nasa"
+        "phys"
+        "heal";
     gap: 1em;
 }
 

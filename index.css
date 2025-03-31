@@ -222,7 +222,7 @@ a:focus {
 
 article {
     border-radius: 0.2em;
-    background-color: #e5e5e5;
+    background-color: rgb(233, 233, 170);
     height: 100%;
 }
 
